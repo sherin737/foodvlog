@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ABC cafe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--<link rel="apple-touch-icon" href="{% static 'hm/img/apple-icon.png'  %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'hm/img/favicon.ico' %}">-->
+
+    <link rel="stylesheet" href="{% static 'hm/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'hm/css/templatemo.css' %}">
+    <link rel="stylesheet" href="{% static 'hm/css/custom.css' %}">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static 'hm/css/fontawesome.min.css' %}">
+
+</head>
+
+<body>
+    
+
+
+<!--    <nav class="navbar navbar-expand-lg navbar-green ">-->
+<!--        <div class="container d-flex justify-content-between ">-->
+<!--            <div class=" collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">-->
+<!--                <div class="flex-fill align-right">-->
+<!--                    <ul class="nav text-right navbar-nav d-flex justify-content-between mx-lg-auto">-->
+
+<!--                        <li class="nav-item ">-->
+<!--                          <div class="container align-right ">-->
+<!--                           <div class="btn-group">-->
+<!--                                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--                                 Filter-->
+<!--                                </button>-->
+<!--                                <ul class="dropdown-menu">-->
+<!--                                   <li><a class="dropdown-item" href="/">All</a></li>-->
+<!--                                   {% for i in ct %}-->
+<!--                                  <li><a class="dropdown-item" href={{i.get_url}}>{{ i.name }}</a></li>-->
+<!--                                  {% endfor %}-->
+<!--                                </ul>-->
+<!--                           </div>-->
+<!--                         </div>-->
+<!--                        </li>-->
+
+<!--                       <div class="search">-->
+<!--                         <form action="{% url 'search' %} " method="get">-->
+<!--                         <input type="text" placeholder=" Search.." name="q">-->
+<!--                         <button><i class="fa fa-search" style="font-size: 18px;"> </i></button>-->
+<!--                         </form>-->
+<!--                       </div>-->
+<!--                     </ul>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </nav>-->
+                    <!--<a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>-->
+                    <!--<a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>
+                    </a>-->
+<!--                    <a class="nav-icon position-relative text-decoration-none" href="#">-->
+<!--                        <i class="fa fa-fw fa-user text-dark mr-3"></i>-->
+<!--                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>-->
+<!--                    </a>-->
+
+
+
+
+    <!-- Close Header -->
+
+    <!-- Modal -->
+    {% comment %} <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div> {% endcomment %}
+
+
+
+    <!-- Start Banner Hero -->
+
+    <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="1"></li>
+            <li data-bs-target="#template-mo-zay-hero-carousel" data-bs-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="{% static './hm/img//bg44.jpg' %}" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left align-self-center">
+                                <h1 class="h1 text-success"><b>ABC</b>CAFE </h1>
+                                <h3 class="h2">Quality Food ITEMS</h3>
+                                <p> Quality food items you can trust
+                                    {% comment %} <a rel="sponsored" class="text-success" href="https://stories.freepik.com/" target="_blank">Quality First</a>
+                                    <a rel="sponsored" class="text-success" href="https://unsplash.com/" target="_blank">Unsplash</a> and
+                                    <a rel="sponsored" class="text-success" href="https://icons8.com/" target="_blank">Icons 8</a>. {% endcomment %}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="{% static './hm/img//bg33.jpg' %}" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1 text-success">ABC-CAFE </h1>
+                                <h3 class="h2">Quality Food Item</h3>
+                                <p> Quality food items you can 
+                                   <strong>trust</strong> with us
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <div class="row p-5">
+                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                            <img class="img-fluid" src="{% static './hm/img//bg22.jpg' %}" alt="">
+                        </div>
+                        <div class="col-lg-6 mb-0 d-flex align-items-center">
+                            <div class="text-align-left">
+                                <h1 class="h1 text-success">ABC-CAFE</h1>
+                                <h3 class="h2">Quality food item </h3>
+                                <p>
+                                   You dream it,we made it
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev text-decoration-none w-auto ps-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="prev">
+            <i class="fas fa-chevron-left"></i>
+        </a>
+        <a class="carousel-control-next text-decoration-none w-auto pe-3" href="#template-mo-zay-hero-carousel" role="button" data-bs-slide="next">
+            <i class="fas fa-chevron-right"></i>
+        </a>
+    </div>
+    <!-- End Banner Hero -->
+
+
+    <!-- Start Categories of The Month -->
+   
+    <!-- End Categories of The Month -->
+
+
+<!-- Start Featured Product --><!-- Example single danger button -->
+<!--<div class="container ">-->
+<!--<div class="btn-group">-->
+<!--  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">-->
+<!--    Filter-->
+<!--  </button>-->
+<!--  <ul class="dropdown-menu">-->
+<!--    <li><a class="dropdown-item" href="/">All</a></li>-->
+<!--       {% for i in ct %}-->
+<!--    <li><a class="dropdown-item" href={{i.get_url}}>{{ i.name }}</a></li>-->
+
+<!--      {% endfor %}-->
+
+<!--  </ul>-->
+<!--</div>-->
+<!--</div>-->
+        <div class="container py-5">
+
+
+            <div class="row text-center py-3">
+
+                <div class="col-lg-6 m-auto">
+                    <h1 class="h1 text-success">ABC-CAFE</h1>
+                    <p>
+                        Register with us and have quality food items at your door step
+                    </p>
+                </div>
+<!--               <div class="category mt-5 mb-5" >-->
+<!--                   <h3 class="h2 text-decoration-none text-bold text-blue">Categories</h3>-->
+<!--                   {% for i in ct %}-->
+<!--                   <b style="color:blue">-->
+<!--                     <a href={{i.get_url}}>{{ i.name }}</a>-->
+<!--                   </b>-->
+<!--                   {% endfor %}-->
+<!--               </div>-->
+
+            </div>
+       </div>
+
+<!--     ................................-->
+          <div class="container">
+            <div class="row">
+                {% for i in pg.object_list %}
+                <div class=" col-md-3 ">
+                    <div class="card h-100 " >
+                        <a href="{{i.get_url}}">
+                            <img src="{{i.img.url}}" class="card-img-top" alt="..." style="height:250px;width:100%;">
+                        </a>
+                        <div class="card-body">
+                            <ul class="list-unstyled d-flex justify-content-between">
+                                <li class="text-muted text-right">Stock-left:{{i.stock}}</li>
+                                <li class="text-muted text-right">Rs.{{i.price}}</li>
+                            </ul>
+                            <a href="{{i.get_url}}" class="h2 text-decoration-none text-dark">{{ i.name }}</a>
+<!--                            <p class="card-text">-->
+<!--                              {{i.desc | truncatewords:15}}-->
+<!--                            </p>-->
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+              </div>
+<!--     .................-->
+<!--  <div class="card-group">-->
+<!--    {% for i in pr %}-->
+<!--    <div class="card">-->
+<!--    <img class="card-img-top" src="{{i.img.url}}"  alt="Card image cap" style="height:250px;width:100%;">-->
+<!--    <div class="card-body">-->
+<!--      <h5 class="card-title">{{ i.name }}</h5>-->
+<!--      <p class="card-text">{{i.desc | truncatewords:15}}</p>-->
+<!--    </div>-->
+<!--    <div class="card-footer">-->
+<!--      <small class="text-muted">Rs.{{i.price}}</small>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--   {%endfor%}-->
+<!--  </div>-->
+    <!-- End Featured Product -->
+ <div class="conainer pt-5 pb-5 ">
+    <div class="text-center">
+       {% for p in pg.paginator.page_range %}
+        <a href="?page={{p}}" class="btn btn-light btn-sm {% if pg.number == p %} active {% endif %}">{{p}}</a>
+        {% endfor %}
+     </div>
+
+</div>
+<!--<hr class="btmspace-80 ">-->
+    <!-- End Script -->
+
+</body>
+
+</html>
+{% endblock %}

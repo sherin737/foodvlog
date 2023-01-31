@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content%}
+<!DOCTYPE html>
+<html>  
+<head> 
+   
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+   
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">-->
+<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js">-->
+<!--<link rel="stylesheet" href="  https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">-->
+<link rel="stylesheet" href="{% static 'static/cstyle.css' %}">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>  
+<body>
+<div class="container pt-5 mt-5 ">
+<!--<div class="card">-->
+    <div class="row">
+<!--        <div class="col-md-8 cart">-->
+
+            <div class="title">
+                <div class="row">
+
+                    <div class="col"><h4><b>Shopping Cart</b></h4></div>
+                    <div class="col align-self-center text-right text-muted"><b><i class="fa fa-shopping-cart" style="font-size:25px;color:red"></i>{{itc}}</b></div>
+                </div>
+            </div> <hr>
+        {% for i in ci %}
+            <div class="row ">
+<!--                border-top border-bottom-->
+
+                <div class="row main align-items-center">
+                     <div class="col-2"><a href="{{i.prodt.get_url}}"><img class="img-fluid" style="height:100px;width:100px;" src="{{i.prodt.img.url}}"></a></div>
+                         <div class="col">
+                             <div class="row text-muted">{{i.prodt.name}}</div>
+                             <div class="row text-muted">ID:{{i.prodt.id}}</div>
+                         </div>
+                         <div class="col">
+                          <a href="{% url 'dec_cart' i.prodt.id %}"><i class="fa fa-minus" style="font-size:10px;color:green"></i></a>&nbsp;{{i.quant}}&nbsp;<a href="{% url 'addcart' i.prodt.id %}"><i class="fa fa-plus" style="font-size:10px;color:green"></i></a>
+<!--                             class="border"-->
+                         </div>
+                    <div class="col">Rs.{{i.total}}  <a href="{% url 'remove' i.prodt.id %}"><span class="close">&#10005;</span></a></div>
+
+                </div>
+<br><br><br>
+
+            </div>
+
+               {%endfor%}
+            <!-- <div class="row">
+                <div class="row main align-items-center">
+                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg"></div>
+                    <div class="col">
+                        <div class="row text-muted">Shirt</div>
+                        <div class="row">Cotton T-shirt</div>
+                    </div>
+                    <div class="col">
+                        <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                    </div>
+                    <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                </div>
+            </div> -->
+
+            
+            <!-- <div class="row border-top border-bottom">
+                <div class="row main align-items-center">
+                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg"></div>
+                    <div class="col">
+                        <div class="row text-muted">Shirt</div>
+                        <div class="row">Cotton T-shirt</div>
+                    </div>
+                    <div class="col">
+                        <a href="#">-</a><a href="#" class="border">1</a><a href="#">+</a>
+                    </div>
+                    <div class="col">&euro; 44.00 <span class="close">&#10005;</span></div>
+                </div>
+            </div> -->
+            <hr>
+            <div class="container text-center pt-5 mt-5">
+            <div class="row" style=" padding: 2vh 0;">
+                <!--border-top: 1px solid rgba(0,0,0,.1);-->
+
+                <div class="col"><b>TOTAL PRICE</b></div>
+                    <div class="col text-right"><b>Rs.{{t}}</b></div>
+                    </div>
+            </div>
+            <div class="back-to-shop text-center mtt-5 pt-5 mb-5 pb-5"><a href="#">&leftarrow;</a><span class="text-muted"><b>Back to shop</b></span></div>
+
+
+<!--         <div class="col-md-4 summary">-->
+<!--            <div><h5><b>Summary</b></h5></div>-->
+<!--            <hr>-->
+<!--            <div class="row">-->
+<!--                <div class="col" style="padding-left:0;">ITEMS 3</div>-->
+<!--                <div class="col text-right">&euro; 132.00</div>-->
+<!--            </div>-->
+<!--            <form>-->
+<!--                <p>SHIPPING</p>-->
+<!--                <select><option class="text-muted">Standard-Delivery- &euro;5.00</option></select>-->
+<!--                <p>GIVE CODE</p>-->
+<!--                <input id="code" placeholder="Enter your code">-->
+<!--            </form>-->
+<!--            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">-->
+<!--                <div class="col">TOTAL PRICE</div>-->
+<!--                <div class="col text-right">&euro; 137.00</div>-->
+<!--            </div>-->
+<!--            <button class="btn">CHECKOUT</button>-->
+<!--        </div>-->
+
+     </div>
+
+</div>
+</body>  
+</html>
+{% endblock %}

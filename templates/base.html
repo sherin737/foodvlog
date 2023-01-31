@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ABC CAFE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--    <link rel="apple-touch-icon" href="{% static 'hm/img/apple-icon.png'  %}">-->
+<!--    <link rel="shortcut icon" type="image/x-icon" href="{% static 'hm/img/favicon.ico' %}">-->
+
+    <link rel="stylesheet" href="{% static 'hm/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'hm/css/templatemo.css' %}">
+    <link rel="stylesheet" href="{% static 'hm/css/custom.css' %}">
+
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="{% static 'hm/css/fontawesome.min.css' %}">
+
+    <style>
+    .search input[type=text]{
+        width:300px;
+        height:25px;
+        border-radius:25px;
+        border: none;
+    }
+
+    .search{
+        float:right;
+        margin:7px;
+    }
+
+    .search button{
+        background-color: #0074D9;
+        color: #f2f2f2;
+        float: right;
+        padding: 5px 10px;
+        margin-right: 16px;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+    }
+
+
+    </style>
+</head>
+
+<body>
+    
+
+
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="/">
+                ABC-CAFE
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="nav-link" href="{% url 'cartDetails' %}"><i class="fa fa-shopping-cart" style="font-size:25px;color:red"></i><b >{{itc}}</b></a>
+                        </li>
+                      <!--  <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact.html">Login</a>
+                            </li>-->
+                        <li class="nav-item">
+                        <div class="container ">
+                           <div class="btn-group">
+                                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                 Filter
+                                </button>
+                                <ul class="dropdown-menu">
+                                   <li><a class="dropdown-item" href="/">All</a></li>
+                                   {% for i in ct %}
+                                  <li><a class="dropdown-item" href={{i.get_url}}>{{ i.name }}</a></li>
+                                  {% endfor %}
+                                </ul>
+                          </div>
+                        </div>
+                        </li>
+                    </ul>
+                </div>
+                   <div class="search">
+                       <form action="{% url 'search' %} " method="get">
+                         <input type="text" placeholder=" Search.." name="q">
+                         <button><i class="fa fa-search" style="font-size: 18px;"> </i></button>
+                       </form>
+                   </div>
+                </div>
+                <!--<div class="navbar align-self-center d-flex">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon d-none d-lg-inline" href="#" data-bs-toggle="modal" data-bs-target="#templatemo_search">
+                        <i class="fa fa-fw fa-search text-dark mr-2"></i>
+                    </a>-->
+<!--                    <a class="nav-icon position-relative text-decoration-none" href="#">-->
+<!--                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>-->
+<!--                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">7</span>-->
+<!--                    </a>-->
+                    <!--<a class="nav-icon position-relative text-decoration-none" href="#">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark">+99</span>
+                    </a>-->
+               <!-- </div>-->
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+<!--    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--        <div class="modal-dialog modal-lg" role="document">-->
+<!--            <div class="w-100 pt-1 mb-5 text-right">-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--            </div>-->
+<!--            <form action="" method="get" class="modal-content modal-body border-0 p-0">-->
+<!--                <div class="input-group mb-2">-->
+<!--                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">-->
+<!--                    <button type="submit" class="input-group-text bg-success text-light">-->
+<!--                        <i class="fa fa-fw fa-search text-white"></i>-->
+<!--                    </button>-->
+<!--                </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+    {% block content %}
+    {% endblock %}
+     <!-- Start Footer -->
+     <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row pt-2">
+                <div class="col-md-4 ">
+                    <h2 class="h2 text-success pt-2  border-0 logo">ABC Cafe</h2>
+                </div>
+                <div class="col-md-4 ">
+                    <h4 class="h4 text-light pt-2  border-0">Consectetur at ligula,010-020-0340</h4>
+                </div>
+                <div class="col-md-4 ">
+                    <h4 class="h4 text-light  pt-2 border-0">info@abc.com</h4>
+                </div>
+            </div>
+        </div>
+         <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row ">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2021 ABC cafe
+                            | Designed by <a rel="sponsored" href="https://templatemo.com" target="_blank">JSCodex</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </footer>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script src="{% static 'hm/js/jquery-1.11.0.min.js' %}"></script>
+    <script src="{% static 'hm/js/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'hm/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'hm/js/templatemo.js' %}"></script>
+    <script src="{% static 'hm/js/custom.js' %}"></script>
+</body>
+</html>
